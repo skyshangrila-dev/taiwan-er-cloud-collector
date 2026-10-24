@@ -17,7 +17,14 @@ concurrency:
 
 jobs:
   collect:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 4
     steps:
       - name: Check out collector
