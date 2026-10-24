@@ -1,10 +1,7 @@
-name: Collect Taiwan ER data
+name: Audit Taiwan ER source access
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -14,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect:
+  audit:
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
